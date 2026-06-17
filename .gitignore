@@ -1,0 +1,21 @@
+# 编译产物
+/wx_channel_hub
+/wx_channel_hub.exe
+/hub_server
+/hub_server.exe
+
+# 数据库与运行时
+*.db
+*.db-shm
+*.db-wal
+
+# 前端依赖与构建产物（dist 由 CI/构建步骤生成）
+frontend/node_modules/
+frontend/dist/
+sites/node_modules/
+sites/.wrangler/
+sites/dist/
+
+# 本地环境
+.env
+.env.local
