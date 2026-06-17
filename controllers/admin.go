@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"wx_channel/hub_server/database"
+	"github.com/nobiyou/wx_channel_hub/database"
 
 	"github.com/gorilla/mux"
 )

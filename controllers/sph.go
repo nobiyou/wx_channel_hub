@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/middleware"
-	"wx_channel/hub_server/models"
-	"wx_channel/hub_server/ws"
-	"wx_channel/internal/services"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/middleware"
+	"github.com/nobiyou/wx_channel_hub/models"
+	"github.com/nobiyou/wx_channel_hub/ws"
+	"github.com/nobiyou/wx_channel_hub/services"
 )
 
 type hubSharedFeedService interface {

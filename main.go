@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"wx_channel/hub_server/controllers"
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/middleware"
-	"wx_channel/hub_server/services" // Added utils import
-	"wx_channel/hub_server/ws"
+	"github.com/nobiyou/wx_channel_hub/controllers"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/middleware"
+	"github.com/nobiyou/wx_channel_hub/services" // Added utils import
+	"github.com/nobiyou/wx_channel_hub/ws"
 
 	"github.com/gorilla/mux"
 )

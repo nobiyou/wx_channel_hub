@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/middleware"
-	"wx_channel/hub_server/models"
-	"wx_channel/hub_server/services"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/middleware"
+	"github.com/nobiyou/wx_channel_hub/models"
+	"github.com/nobiyou/wx_channel_hub/services"
 )
 
 // GenerateBindToken returns a short code for the user to input in the client

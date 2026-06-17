@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"wx_channel/hub_server/cache"
-	"wx_channel/hub_server/middleware"
+	"github.com/nobiyou/wx_channel_hub/cache"
+	"github.com/nobiyou/wx_channel_hub/middleware"
 )
 
 // MetricsSummary 监控指标摘要

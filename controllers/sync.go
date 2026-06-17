@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 	"strconv"
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/models"
-	"wx_channel/hub_server/services"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/models"
+	"github.com/nobiyou/wx_channel_hub/services"
 
 	"github.com/gorilla/mux"
 )

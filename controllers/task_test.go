@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"wx_channel/hub_server/models"
+	"github.com/nobiyou/wx_channel_hub/models"
 )
 
 func TestRequiredCapabilitySemanticActions(t *testing.T) {

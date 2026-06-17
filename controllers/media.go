@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	hubutils "wx_channel/hub_server/utils"
+	hubutils "github.com/nobiyou/wx_channel_hub/utils"
 )
 
 // mediaClient 复用的 HTTP 客户端（流式代理使用无超时，但有连接超时）

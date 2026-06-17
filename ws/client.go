@@ -10,10 +10,10 @@ import (
 	"log"
 	"sync"
 	"time"
-	"wx_channel/hub_server/cache"
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/models"
-	"wx_channel/hub_server/services"
+	"github.com/nobiyou/wx_channel_hub/cache"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/models"
+	"github.com/nobiyou/wx_channel_hub/services"
 
 	"github.com/coder/websocket"
 )

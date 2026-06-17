@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/middleware"
-	"wx_channel/hub_server/models"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/middleware"
+	"github.com/nobiyou/wx_channel_hub/models"
 
 	"golang.org/x/crypto/bcrypt"
 )

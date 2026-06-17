@@ -6,7 +6,7 @@ import (
 	"errors"
 	"sync"
 	"time"
-	"wx_channel/hub_server/database"
+	"github.com/nobiyou/wx_channel_hub/database"
 )
 
 // tokenEntry 存储 token 与过期时间

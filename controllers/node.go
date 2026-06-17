@@ -3,8 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/models"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/models"
 )
 
 func GetNodes(w http.ResponseWriter, r *http.Request) {

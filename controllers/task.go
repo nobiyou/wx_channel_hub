@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/middleware"
-	"wx_channel/hub_server/models"
-	"wx_channel/hub_server/ws"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/middleware"
+	"github.com/nobiyou/wx_channel_hub/models"
+	"github.com/nobiyou/wx_channel_hub/ws"
 )
 
 func requiredCapability(action string, data json.RawMessage) string {

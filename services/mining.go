@@ -3,8 +3,8 @@ package services
 import (
 	"log"
 	"time"
-	"wx_channel/hub_server/database"
-	"wx_channel/hub_server/models"
+	"github.com/nobiyou/wx_channel_hub/database"
+	"github.com/nobiyou/wx_channel_hub/models"
 )
 
 // StartMiningService starts the background worker to award credits for online devices

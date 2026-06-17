@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
-	"wx_channel/hub_server/ws"
+	"github.com/nobiyou/wx_channel_hub/ws"
 )
 
 // GetWSStats 获取 WebSocket 连接统计信息
