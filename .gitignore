@@ -15,6 +15,13 @@ frontend/dist/
 sites/node_modules/
 sites/.wrangler/
 sites/dist/
+sites_hub_frontend/node_modules/
+sites_hub_frontend/.next/
+sites_hub_frontend/.wrangler/
+sites_hub_frontend/dist/
+sites_hub_frontend/dev.log
+sites_hub_frontend/*.tar
+.codex-cache/
 
 # 本地环境
 .env
