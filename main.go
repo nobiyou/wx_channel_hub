@@ -4,6 +4,7 @@ import (
 	"log" // Kept log for log.Fatalf and log.Printf, as its removal would cause compilation errors with existing calls.
 	"net/http"
 	"os"
+	"path/filepath"
 	"runtime"
 	"runtime/debug"
 	"strings"
@@ -173,7 +174,7 @@ func main() {
 	admin.HandleFunc("/subscription/{id}", controllers.AdminDeleteSubscription).Methods("DELETE")
 
 	// ─── 静态文件服务 - Vue SPA 支持 ───
-	frontendDist := envOrDefault("HUB_FRONTEND_DIST", "frontend/dist")
+	frontendDist := envOrDefault("HUB_FRONTEND_DIST", "static")
 	fs := http.FileServer(http.Dir(frontendDist))
 	router.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// 如果是 API 调用或 WebSocket，不处理
@@ -184,9 +185,9 @@ func main() {
 
 		path := r.URL.Path
 		// 检查文件是否存在于 dist 目录
-		if _, err := os.Stat(frontendDist + path); os.IsNotExist(err) {
+		if _, err := os.Stat(filepath.Join(frontendDist, path)); os.IsNotExist(err) {
 			// 文件不存在，返回 index.html (SPA History Mode)
-			http.ServeFile(w, r, frontendDist+"/index.html")
+			http.ServeFile(w, r, filepath.Join(frontendDist, "index.html"))
 			return
 		}
 
