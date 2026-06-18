@@ -174,7 +174,7 @@ func main() {
 	admin.HandleFunc("/subscription/{id}", controllers.AdminDeleteSubscription).Methods("DELETE")
 
 	// ─── 静态文件服务 - Vue SPA 支持 ───
-	frontendDist := envOrDefault("HUB_FRONTEND_DIST", "static")
+	frontendDist := envOrDefault("HUB_FRONTEND_DIST", "frontend/dist")
 	fs := http.FileServer(http.Dir(frontendDist))
 	router.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// 如果是 API 调用或 WebSocket，不处理
