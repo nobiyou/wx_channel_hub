@@ -49,13 +49,22 @@ func adminMiddleware(next http.Handler) http.Handler {
 	})
 }
 
+func envOrDefault(key, fallback string) string {
+	value := strings.TrimSpace(os.Getenv(key))
+	if value == "" {
+		return fallback
+	}
+	return value
+}
+
 func main() {
 	if err := middleware.InitJWTSecretFromEnv(); err != nil {
 		log.Fatalf("Invalid JWT secret configuration: %v", err)
 	}
 
 	// 1. 初始化数据库
-	if err := database.InitDB("hub_server.db"); err != nil {
+	dbPath := envOrDefault("HUB_DB_PATH", "hub_server.db")
+	if err := database.InitDB(dbPath); err != nil {
 		log.Fatalf("Failed to init database: %v", err)
 	}
 
@@ -164,7 +173,8 @@ func main() {
 	admin.HandleFunc("/subscription/{id}", controllers.AdminDeleteSubscription).Methods("DELETE")
 
 	// ─── 静态文件服务 - Vue SPA 支持 ───
-	fs := http.FileServer(http.Dir("frontend/dist"))
+	frontendDist := envOrDefault("HUB_FRONTEND_DIST", "frontend/dist")
+	fs := http.FileServer(http.Dir(frontendDist))
 	router.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// 如果是 API 调用或 WebSocket，不处理
 		if strings.HasPrefix(r.URL.Path, "/api/") || strings.HasPrefix(r.URL.Path, "/ws/") {
@@ -174,9 +184,9 @@ func main() {
 
 		path := r.URL.Path
 		// 检查文件是否存在于 dist 目录
-		if _, err := os.Stat("frontend/dist" + path); os.IsNotExist(err) {
+		if _, err := os.Stat(frontendDist + path); os.IsNotExist(err) {
 			// 文件不存在，返回 index.html (SPA History Mode)
-			http.ServeFile(w, r, "frontend/dist/index.html")
+			http.ServeFile(w, r, frontendDist+"/index.html")
 			return
 		}
 
@@ -192,5 +202,5 @@ func main() {
 	debug.SetGCPercent(200)
 
 	// utils.LogInfo("Starting Hub Server...")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(envOrDefault("HUB_ADDR", ":8080"), router))
 }
